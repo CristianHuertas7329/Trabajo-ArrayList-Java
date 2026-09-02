@@ -20,23 +20,17 @@ public class principal {
             System.out.println("3. buscar por nombre");
             System.out.println("4. salir");
             System.out.print("ingrese una opcion: ");
-            opcion= entrada.nextInt();
+            opcion = entrada.nextInt();
             entrada.nextLine();
             
             
             switch (opcion){
-                case 1: registrarPersonas();
-                    break;
-                case 2: mostrarPersona();
-                    break;
-                case 3: buscarPersona();
-                    break;
-                case 4: System.out.println("Gracias por usar la vaina");
-                    break;
-                default: System.out.println("ingrese una opcion valida");
+                case 1 -> registrarPersonas();
+                case 2 -> mostrarPersona();
+                case 3 -> buscarPersona();
+                case 4 -> System.out.println("\nGracias por usar el programa");
+                default -> System.out.println("\ningrese una opcion valida\n");
             }
-            
-            
         } while (opcion != 4);
         
         
@@ -96,10 +90,24 @@ public class principal {
         System.out.print("Ingrese el correo electronico: ");
         persona1.setCorreoElectronico(entrada.nextLine());
         
+        // calculo imc y clasificacion
+        persona1.calculoClasificacion();
+        
+        // muestra el imc
+        System.out.println("Indice de Masa Corporal: " + String.format("%.2f", persona1.getIMC()));
+        
+        // categoria
+        System.out.println("Categoria IMC : " + persona1.getCategoriaIMC());
+        
         //guardar cambios
         System.out.println("\n");
         listaPersonas.add(persona1);
         System.out.println("Persona registrada con exito \n");
+        
+    }
+    
+    public static void salidaIMC(double IMC){
+        
         
     }
     
@@ -109,10 +117,18 @@ public class principal {
         } else {
             System.out.println("========= LISTA PERSONAS REGISTRADAS =========");
             for (int i = 0; i < listaPersonas.size(); i++){
-                System.out.println("Registro #" + i + 1 + "\n");
+                System.out.println("Registro #" + (i + 1) + "\n");
                 System.out.println("Nombre Completo: " + listaPersonas.get(i).getNombreCompleto());
                 System.out.println("Fecha de nacimiento: " + listaPersonas.get(i).getFechaNacimiento());
-                
+                System.out.println("Peso: " + listaPersonas.get(i).getPeso());
+                System.out.println("Altura: " + listaPersonas.get(i).getAltura());
+                System.out.println("Direccion: " + listaPersonas.get(i).getDireccion());
+                System.out.println("Telefono: " + listaPersonas.get(i).getTelefono());
+                System.out.println("Direccion: " + listaPersonas.get(i).getDireccion());
+                System.out.println("Correo Electronico: " + listaPersonas.get(i).getCorreoElectronico());
+                System.out.println("IMC: " + listaPersonas.get(i).getIMC());
+                System.out.println("Categoria: " + listaPersonas.get(i).getCategoriaIMC() + "\n");
+                System.out.println("==========================================");
             }
             
         }

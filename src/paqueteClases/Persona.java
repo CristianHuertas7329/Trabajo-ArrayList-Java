@@ -14,18 +14,21 @@ public class Persona {
     private String direccion;
     private String telefono;
     private String correoElectronico;
-
-    public Persona(String nombreCompleto, LocalDate fechaNacimiento, 
-            double peso, double altura, String direccion, String telefono, 
-            String correoElectronico) {
-        this.nombreCompleto = nombreCompleto;
-        this.fechaNacimiento = fechaNacimiento;
-        this.peso = peso;
-        this.altura = altura;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.correoElectronico = correoElectronico;
-    }
+    private double imc;
+    private String categoriaIMC;
+    
+//    metodo constructor de prueba
+//    public Persona(String nombreCompleto, LocalDate fechaNacimiento, 
+//            double peso, double altura, String direccion, String telefono, 
+//            String correoElectronico) {
+//        this.nombreCompleto = nombreCompleto;
+//        this.fechaNacimiento = fechaNacimiento;
+//        this.peso = peso;
+//        this.altura = altura;
+//        this.direccion = direccion;
+//        this.telefono = telefono;
+//        this.correoElectronico = correoElectronico;
+//    }
     
     public int calcularEdad(){
         LocalDate fechaActual = LocalDate.now();
@@ -37,6 +40,21 @@ public class Persona {
         if (calcularEdad() >= 18){
             return true;
         } else { return false;}
+    }
+    
+    public void calculoClasificacion(){
+        String[] clasificacion = {"Bajo", "Normal", "Sobrepeso", "Obeso"};
+        imc = (peso / Math.pow(altura, 2));
+        
+        if (imc < 18.5){
+            categoriaIMC = clasificacion[0];
+        } else if (imc < 25) {
+            categoriaIMC = clasificacion[1];
+        } else if (imc < 30) {
+            categoriaIMC = clasificacion[2];
+        } else {
+            categoriaIMC = clasificacion[3];
+        }
     }
 
     // getter y setters
@@ -61,12 +79,14 @@ public class Persona {
     public String getCorreoElectronico() {return correoElectronico;}
     public void setCorreoElectronico(String correoElectronico) {this.correoElectronico = correoElectronico;}
 
-    
-    
+    public double getIMC() {return imc;}
+    public String getCategoriaIMC() {return categoriaIMC;}
+
     
     
     // metodo constructor vacion
     public Persona(){};
+    
     
     public void mostrarDatos(){
         System.out.println(nombreCompleto);
