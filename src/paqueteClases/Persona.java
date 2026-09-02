@@ -89,12 +89,14 @@ public class Persona {
     
     
     public void mostrarDatos(){
-        System.out.println(nombreCompleto);
-        System.out.println(fechaNacimiento);
-        System.out.println(peso);
-        System.out.println(altura);
-        System.out.println(telefono);
-        System.out.println(correoElectronico);
+        System.out.println("nombre: " + nombreCompleto);
+        System.out.println("Fecha de nacimiento: "+fechaNacimiento);
+        System.out.println("Peso: "+peso);
+        System.out.println("Altura: "+altura);
+        System.out.println("Telefono: "+ telefono);
+        System.out.println("Correo: "+correoElectronico);
+        System.out.println("IMC: "+imc);
+        System.out.println("Categoria: "+categoriaIMC);
     }
 
 
