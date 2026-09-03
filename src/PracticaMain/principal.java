@@ -75,7 +75,7 @@ public class principal {
         
         // altura
         System.out.print("Ingrese la altura en metros (ej. 1.30): ");
-        persona1.setAltura(entrada.nextFloat());
+        persona1.setAltura(entrada.nextDouble());
         entrada.nextLine();
         
         // direccion
