@@ -120,24 +120,32 @@ public class principal {
                 System.out.println("Registro #" + (i + 1) + "\n");
                 System.out.println("Nombre Completo: " + listaPersonas.get(i).getNombreCompleto());
                 System.out.println("Fecha de nacimiento: " + listaPersonas.get(i).getFechaNacimiento());
-                System.out.println("Peso: " + listaPersonas.get(i).getPeso());
-                System.out.println("Altura: " + listaPersonas.get(i).getAltura());
+                System.out.println("Peso: " + String.format("%.2f", listaPersonas.get(i).getPeso()));
+                System.out.println("Altura: " + String.format("%.2f", listaPersonas.get(i).getAltura()));
                 System.out.println("Direccion: " + listaPersonas.get(i).getDireccion());
                 System.out.println("Telefono: " + listaPersonas.get(i).getTelefono());
-                System.out.println("Direccion: " + listaPersonas.get(i).getDireccion());
                 System.out.println("Correo Electronico: " + listaPersonas.get(i).getCorreoElectronico());
-                System.out.println("IMC: " + listaPersonas.get(i).getIMC());
+                System.out.println("IMC: " + String.format("%.2f", listaPersonas.get(i).getIMC()));
                 System.out.println("Categoria: " + listaPersonas.get(i).getCategoriaIMC() + "\n");
                 System.out.println("==========================================");
             }
-            
         }
-        
     }
     
     public static void buscarPersona(){
-        
-        
+        System.out.print("\ningrese el nombra a buscar: ");
+        String busqueda = entrada.nextLine().toLowerCase();
+        boolean encontrado = true;
+        for (Persona personaBuscada: listaPersonas){
+            if (personaBuscada.getNombreCompleto().toLowerCase().contains(busqueda)){
+                System.out.println("Persona encontrada, mostrando registro de: " + personaBuscada.getNombreCompleto());
+                personaBuscada.mostrarDatos();
+                encontrado = true;  
+            }      
+        }
+        if (!encontrado){
+            System.out.println("No se encontro a la persona solicitada");            
+        } 
     }
     
 }
