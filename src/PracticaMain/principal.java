@@ -106,11 +106,6 @@ public class principal {
         
     }
     
-    public static void salidaIMC(double IMC){
-        
-        
-    }
-    
     public static void mostrarPersona(){
         if (listaPersonas.isEmpty()){
             System.out.println("no se ha agregado ninguna persona \n");
@@ -135,10 +130,10 @@ public class principal {
     public static void buscarPersona(){
         System.out.print("\ningrese el nombra a buscar: ");
         String busqueda = entrada.nextLine().toLowerCase();
-        boolean encontrado = true;
+        boolean encontrado = false;
         for (Persona personaBuscada: listaPersonas){
             if (personaBuscada.getNombreCompleto().toLowerCase().contains(busqueda)){
-                System.out.println("Persona encontrada, mostrando registro de: " + personaBuscada.getNombreCompleto());
+                System.out.println("Persona encontrada, mostrando registro de: " + personaBuscada.getNombreCompleto() + "\n");
                 personaBuscada.mostrarDatos();
                 encontrado = true;  
             }      
